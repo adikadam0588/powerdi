@@ -1,0 +1,185 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+class Task {
+public:
+    Task(const std::string &description) : description(description), completed(false) {}
+    
+    void complete() { completed = true; }
+    bool isCompleted() const { return completed; }
+    const std::string &getDescription() const { return description; }
+
+private:
+    std::string description;
+    bool completed;
+};
+
+class TaskManager {
+public:
+    void addTask(const std::string &description) {
+        tasks.emplace_back(description);
+    }
+
+    void removeTask(int index) {
+        if (index >= 0 && index < tasks.size()) {
+            tasks.erase(tasks.begin() + index);
+        } else {
+            std::cout << "Invalid index.\n";
+        }
+    }
+
+    void completeTask(int index) {
+        if (index >= 0 && index < tasks.size()) {
+            tasks[index].complete();
+        } else {
+            std::cout << "Invalid index.\n";
+        }
+    }
+
+    void listTasks() const {
+        for (size_t i = 0; i < tasks.size(); ++i) {
+            std::cout << (tasks[i].isCompleted() ? "[x] " : "[ ] ") << tasks[i].getDescription() << "\n";
+        }
+    }
+
+private:
+    std::vector<Task> tasks;
+};
+
+void showMenu() {
+    std::cout << "1. Add task\n";
+    std::cout << "2. Remove task\n";
+    std::cout << "3. Complete task\n";
+    std::cout << "4. List tasks\n";
+    std::cout << "5. Exit\n";
+}
+
+int main() {
+    TaskManager manager;
+    int choice;
+    
+    while (true) {
+        showMenu();
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
+        
+        if (choice == 1) {
+            std::cin.ignore();  // Ignore newline character left in buffer
+            std::string description;
+            std::cout << "Enter task description: ";
+            std::getline(std::cin, description);
+            manager.addTask(description);
+        } else if (choice == 2) {
+            int index;
+    #include <iostream>
+#include <vector>
+#include <string>
+
+class Task {
+public:
+    Task(const std::string &description) : description(description), completed(false) {}
+    
+    void complete() { completed = true; }
+    bool isCompleted() const { return completed; }
+    const std::string &getDescription() const { return description; }
+
+private:
+    std::string description;
+    bool completed;
+};
+
+class TaskManager {
+public:
+    void addTask(const std::string &description) {
+        tasks.emplace_back(description);
+    }
+
+    void removeTask(int index) {
+        if (index >= 0 && index < tasks.size()) {
+            tasks.erase(tasks.begin() + index);
+        } else {
+            std::cout << "Invalid index.\n";
+        }
+    }
+
+    void completeTask(int index) {
+        if (index >= 0 && index < tasks.size()) {
+            tasks[index].complete();
+        } else {
+            std::cout << "Invalid index.\n";
+        }
+    }
+
+    void listTasks() const {
+        for (size_t i = 0; i < tasks.size(); ++i) {
+            std::cout << (tasks[i].isCompleted() ? "[x] " : "[ ] ") << tasks[i].getDescription() << "\n";
+        }
+    }
+
+private:
+    std::vector<Task> tasks;
+};
+
+void showMenu() {
+    std::cout << "1. Add task\n";
+    std::cout << "2. Remove task\n";
+    std::cout << "3. Complete task\n";
+    std::cout << "4. List tasks\n";
+    std::cout << "5. Exit\n";
+}
+
+int main() {
+    TaskManager manager;
+    int choice;
+    
+    while (true) {
+        showMenu();
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
+        
+        if (choice == 1) {
+            std::cin.ignore();  // Ignore newline character left in buffer
+            std::string description;
+            std::cout << "Enter task description: ";
+            std::getline(std::cin, description);
+            manager.addTask(description);
+        } else if (choice == 2) {
+            int index;
+            std::cout << "Enter task index to remove: ";
+            std::cin >> index;
+            manager.removeTask(index - 1);
+        } else if (choice == 3) {
+            int index;
+            std::cout << "Enter task index to complete: ";
+            std::cin >> index;
+            manager.completeTask(index - 1);
+        } else if (choice == 4) {
+            manager.listTasks();
+        } else if (choice == 5) {
+            break;
+        } else {
+            std::cout << "Invalid choice. Please try again.\n";
+        }
+    }
+
+    return 0;
+}        std::cout << "Enter task index to remove: ";
+            std::cin >> index;
+            manager.removeTask(index - 1);
+        } else if (choice == 3) {
+            int index;
+            std::cout << "Enter task index to complete: ";
+            std::cin >> index;
+            manager.completeTask(index - 1);
+        } else if (choice == 4) {
+            manager.listTasks();
+        } else if (choice == 5) {
+            break;
+        } else {
+            std::cout << "Invalid choice. Please try again.\n";
+        }
+    }
+
+    return 0;
+}
